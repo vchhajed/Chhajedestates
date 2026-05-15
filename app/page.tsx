@@ -142,25 +142,30 @@ const DEFAULT_TESTIMONIALS = [
 export default function HomePage() {
   const [liveStats, setLiveStats] = useState(DEFAULT_STATS);
   const [liveTestimonials, setLiveTestimonials] = useState(DEFAULT_TESTIMONIALS);
+  const [liveFeatured, setLiveFeatured] = useState(featuredProjects);
   const [heroBadge, setHeroBadge] = useState("Premium Real Estate Consultancy, Pune");
   const [heroHeading, setHeroHeading] = useState("Premium Real Estate Solutions for Builders & Buyers");
   const [heroSubheading, setHeroSubheading] = useState(
     "Unlock Maximum Value for Your Project with Our Expertise. Exclusive mandates, high-ROI properties, and trusted partnerships across Pune."
   );
+  const [heroBgImage, setHeroBgImage] = useState("/images/ranawat-render.jpg");
 
   useEffect(() => {
     supabase
       .from("site_config")
       .select("key, value")
-      .in("key", ["hero", "stats", "testimonials"])
+      .in("key", ["hero", "stats", "testimonials", "featuredProjects"])
       .then(({ data }) => {
         if (!data) return;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const map = Object.fromEntries(data.map((r) => [r.key, r.value])) as Record<string, any>;
         if (map.hero?.badge) setHeroBadge(map.hero.badge);
         if (map.hero?.heading) setHeroHeading(map.hero.heading);
         if (map.hero?.subheading) setHeroSubheading(map.hero.subheading);
+        if (map.hero?.bgImage) setHeroBgImage(map.hero.bgImage);
         if (map.stats?.length) setLiveStats(map.stats);
         if (map.testimonials?.length) setLiveTestimonials(map.testimonials);
+        if (map.featuredProjects?.length) setLiveFeatured(map.featuredProjects);
       });
   }, []);
 
@@ -171,7 +176,7 @@ export default function HomePage() {
         {/* Hero background image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/ranawat-render.jpg"
+            src={heroBgImage}
             alt="Premium Real Estate — Chhajed Estate"
             fill
             className="object-cover object-center"
@@ -402,7 +407,7 @@ export default function HomePage() {
           </AnimatedSection>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredProjects.map((project, i) => (
+            {liveFeatured.map((project, i) => (
               <AnimatedSection key={project.name} delay={i * 0.1}>
                 <div className="project-card bg-[#111111] border border-[#2A2A2A] hover:border-[#D4A017]/40 rounded-xl overflow-hidden group flex flex-col">
                   {/* Card image or gradient */}
