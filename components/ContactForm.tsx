@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, CheckCircle } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 interface ContactFormProps {
   title?: string;
@@ -10,21 +11,59 @@ interface ContactFormProps {
   compact?: boolean;
 }
 
+const initialForm = {
+  full_name: "",
+  mobile: "",
+  email: "",
+  project_interest: "",
+  budget: "",
+  message: "",
+};
+
 export default function ContactForm({
   title = "Book a Site Visit",
   subtitle = "Fill in your details and our team will get back to you within 24 hours.",
   compact = false,
 }: ContactFormProps) {
+  const [form, setForm] = useState(initialForm);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 1200);
+    setError(null);
+
+    const { error: insertError } = await supabase.from("enquiries").insert({
+      full_name: form.full_name,
+      mobile: form.mobile,
+      email: form.email || null,
+      project_interest: form.project_interest,
+      budget: form.budget,
+      message: form.message || null,
+    });
+
+    setLoading(false);
+
+    if (insertError) {
+      setError("Something went wrong. Please try again.");
+      return;
+    }
+
+    setSubmitted(true);
+  };
+
+  const handleReset = () => {
+    setForm(initialForm);
+    setSubmitted(false);
+    setError(null);
   };
 
   if (submitted) {
@@ -41,7 +80,7 @@ export default function ContactForm({
           hours.
         </p>
         <button
-          onClick={() => setSubmitted(false)}
+          onClick={handleReset}
           className="mt-2 text-[#D4A017] text-sm underline underline-offset-4"
         >
           Submit another inquiry
@@ -64,6 +103,9 @@ export default function ContactForm({
           <div>
             <input
               type="text"
+              name="full_name"
+              value={form.full_name}
+              onChange={handleChange}
               required
               placeholder="Your Full Name *"
               className="w-full bg-[#1A1A1A] border border-[#2A2A2A] text-white placeholder-gray-500 text-sm px-4 py-3.5 rounded focus:border-[#D4A017] transition-colors"
@@ -72,6 +114,9 @@ export default function ContactForm({
           <div>
             <input
               type="tel"
+              name="mobile"
+              value={form.mobile}
+              onChange={handleChange}
               required
               placeholder="Mobile Number *"
               pattern="[6-9]{1}[0-9]{9}"
@@ -81,15 +126,21 @@ export default function ContactForm({
         </div>
         <input
           type="email"
+          name="email"
+          value={form.email}
+          onChange={handleChange}
           placeholder="Email Address"
           className="w-full bg-[#1A1A1A] border border-[#2A2A2A] text-white placeholder-gray-500 text-sm px-4 py-3.5 rounded focus:border-[#D4A017] transition-colors"
         />
         <select
+          name="project_interest"
+          value={form.project_interest}
+          onChange={handleChange}
+          required
           className="w-full bg-[#1A1A1A] border border-[#2A2A2A] text-gray-400 text-sm px-4 py-3.5 rounded focus:border-[#D4A017] transition-colors appearance-none"
-          defaultValue=""
         >
           <option value="" disabled>
-            Select Project Interest
+            Select Project Interest *
           </option>
           <option value="ranawat">Ranawat Group Project</option>
           <option value="vrindanand">Vrindanand Parshwa</option>
@@ -100,11 +151,14 @@ export default function ContactForm({
           <option value="other">Other</option>
         </select>
         <select
+          name="budget"
+          value={form.budget}
+          onChange={handleChange}
+          required
           className="w-full bg-[#1A1A1A] border border-[#2A2A2A] text-gray-400 text-sm px-4 py-3.5 rounded focus:border-[#D4A017] transition-colors appearance-none"
-          defaultValue=""
         >
           <option value="" disabled>
-            Budget Range
+            Budget Range *
           </option>
           <option value="50-75">₹50L – ₹75L</option>
           <option value="75-1cr">₹75L – ₹1 Cr</option>
@@ -112,10 +166,16 @@ export default function ContactForm({
           <option value="1.5cr+">Above ₹1.5 Cr</option>
         </select>
         <textarea
+          name="message"
+          value={form.message}
+          onChange={handleChange}
           rows={compact ? 3 : 4}
           placeholder="Your Message / Requirements"
           className="w-full bg-[#1A1A1A] border border-[#2A2A2A] text-white placeholder-gray-500 text-sm px-4 py-3.5 rounded focus:border-[#D4A017] transition-colors resize-none"
         />
+        {error && (
+          <p className="text-red-400 text-xs text-center">{error}</p>
+        )}
         <motion.button
           type="submit"
           disabled={loading}

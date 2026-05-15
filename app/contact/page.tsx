@@ -2,53 +2,73 @@ import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ContactForm from "@/components/ContactForm";
+import { getSiteConfig } from "@/lib/site-config";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact Chhajed Estate for property inquiries, site visits, and builder partnerships. Call us at 9422500152 or email gautamchhajed5751@gmail.com.",
+    "Contact Chhajed Estate for property inquiries, site visits, and builder partnerships.",
 };
 
-const contactInfo = [
-  {
-    icon: Phone,
-    title: "Call Us",
-    lines: ["+91 9422500152"],
-    action: { href: "tel:9422500152", label: "Call Now" },
-  },
-  {
-    icon: MessageCircle,
-    title: "WhatsApp",
-    lines: ["+91 9422500152"],
-    action: {
-      href: "https://wa.me/919422500152?text=Hi%2C%20I%20am%20interested%20in%20your%20properties.",
-      label: "Chat Now",
-    },
-  },
-  {
-    icon: Mail,
-    title: "Email Us",
-    lines: ["gautamchhajed5751@gmail.com"],
-    action: {
-      href: "mailto:gautamchhajed5751@gmail.com",
-      label: "Send Email",
-    },
-  },
-  {
-    icon: MapPin,
-    title: "Our Location",
-    lines: ["Pune, Maharashtra", "India"],
-    action: null,
-  },
-  {
-    icon: Clock,
-    title: "Working Hours",
-    lines: ["Mon – Sat: 9:00 AM – 8:00 PM", "Sunday: 10:00 AM – 5:00 PM"],
-    action: null,
-  },
-];
+type Settings = {
+  phone: string;
+  email: string;
+  whatsapp: string;
+  address: string;
+  hours_weekday: string;
+  hours_weekend: string;
+};
 
-export default function ContactPage() {
+const DEFAULTS: Settings = {
+  phone: "+91 9422500152",
+  email: "gautamchhajed5751@gmail.com",
+  whatsapp: "919422500152",
+  address: "Pune, Maharashtra, India",
+  hours_weekday: "Mon – Sat: 9:00 AM – 8:00 PM",
+  hours_weekend: "Sunday: 10:00 AM – 5:00 PM",
+};
+
+export default async function ContactPage() {
+  const s = await getSiteConfig<Settings>("settings", DEFAULTS);
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: "Call Us",
+      lines: [s.phone],
+      action: { href: `tel:${s.phone.replace(/[^0-9]/g, "")}`, label: "Call Now" },
+    },
+    {
+      icon: MessageCircle,
+      title: "WhatsApp",
+      lines: [s.phone],
+      action: {
+        href: `https://wa.me/${s.whatsapp}?text=Hi%2C%20I%20am%20interested%20in%20your%20properties.`,
+        label: "Chat Now",
+      },
+    },
+    {
+      icon: Mail,
+      title: "Email Us",
+      lines: [s.email],
+      action: { href: `mailto:${s.email}`, label: "Send Email" },
+    },
+    {
+      icon: MapPin,
+      title: "Our Location",
+      lines: [s.address],
+      action: null,
+    },
+    {
+      icon: Clock,
+      title: "Working Hours",
+      lines: [s.hours_weekday, s.hours_weekend],
+      action: null,
+    },
+  ];
+
   return (
     <>
       {/* Page Header */}
@@ -76,7 +96,7 @@ export default function ContactPage() {
           </h1>
           <div className="h-px w-16 bg-gradient-to-r from-[#D4A017] to-[#F0C040] mx-auto mb-6" />
           <p className="text-gray-400 text-lg max-w-xl mx-auto">
-            We're here to help you find the perfect property. Reach out for
+            We&apos;re here to help you find the perfect property. Reach out for
             inquiries, site visits, or builder partnerships.
           </p>
         </div>
@@ -149,7 +169,7 @@ export default function ContactPage() {
                   </h3>
                   <div className="space-y-5">
                     <a
-                      href="tel:9422500152"
+                      href={`tel:${s.phone.replace(/[^0-9]/g, "")}`}
                       className="flex items-center gap-4 group"
                     >
                       <div className="w-12 h-12 rounded-full bg-[#D4A017]/10 flex items-center justify-center group-hover:bg-[#D4A017]/20 transition-colors">
@@ -159,14 +179,12 @@ export default function ContactPage() {
                         <p className="text-gray-500 text-xs uppercase tracking-wider">
                           Phone / WhatsApp
                         </p>
-                        <p className="text-white font-medium">
-                          +91 9422500152
-                        </p>
+                        <p className="text-white font-medium">{s.phone}</p>
                       </div>
                     </a>
 
                     <a
-                      href="mailto:gautamchhajed5751@gmail.com"
+                      href={`mailto:${s.email}`}
                       className="flex items-center gap-4 group"
                     >
                       <div className="w-12 h-12 rounded-full bg-[#D4A017]/10 flex items-center justify-center group-hover:bg-[#D4A017]/20 transition-colors">
@@ -177,7 +195,7 @@ export default function ContactPage() {
                           Email
                         </p>
                         <p className="text-white font-medium break-all">
-                          gautamchhajed5751@gmail.com
+                          {s.email}
                         </p>
                       </div>
                     </a>
@@ -190,23 +208,21 @@ export default function ContactPage() {
                         <p className="text-gray-500 text-xs uppercase tracking-wider">
                           Location
                         </p>
-                        <p className="text-white font-medium">
-                          Pune, Maharashtra, India
-                        </p>
+                        <p className="text-white font-medium">{s.address}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="mt-8 flex gap-3">
                     <a
-                      href="tel:9422500152"
+                      href={`tel:${s.phone.replace(/[^0-9]/g, "")}`}
                       className="flex-1 flex items-center justify-center gap-2 bg-[#D4A017] hover:bg-[#F0C040] text-black font-semibold text-sm py-3.5 rounded transition-colors"
                     >
                       <Phone size={14} />
                       Call Now
                     </a>
                     <a
-                      href="https://wa.me/919422500152?text=Hi%2C%20I%20want%20to%20book%20a%20site%20visit"
+                      href={`https://wa.me/${s.whatsapp}?text=Hi%2C%20I%20want%20to%20book%20a%20site%20visit`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 flex items-center justify-center gap-2 border border-[#D4A017]/40 text-[#D4A017] hover:bg-[#D4A017]/10 text-sm py-3.5 rounded transition-colors"
@@ -233,7 +249,8 @@ export default function ContactPage() {
                   </div>
                   <div className="p-4 text-center">
                     <p className="text-gray-500 text-xs">
-                      Serving clients across Pune — Kondhwa, Bibwewadi, Katraj, and surrounding areas
+                      Serving clients across Pune — Kondhwa, Bibwewadi, Katraj,
+                      and surrounding areas
                     </p>
                   </div>
                 </div>
@@ -243,7 +260,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ / Notice */}
+      {/* FAQ */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#0D0D0D]">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection className="text-center mb-10">
@@ -255,7 +272,7 @@ export default function ContactPage() {
             {[
               {
                 q: "How long does it take to get a response?",
-                a: "Our team responds to all inquiries within 2-4 working hours. For urgent matters, please call us directly at 9422500152.",
+                a: `Our team responds to all inquiries within 2-4 working hours. For urgent matters, please call us directly at ${s.phone}.`,
               },
               {
                 q: "Do you arrange site visits?",

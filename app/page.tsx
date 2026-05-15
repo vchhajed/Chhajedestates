@@ -16,8 +16,10 @@ import {
 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ContactForm from "@/components/ContactForm";
+import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabase";
 
-const stats = [
+const DEFAULT_STATS = [
   { value: "500+", label: "Happy Families" },
   { value: "78+", label: "Units Sold" },
   { value: "10+", label: "Premium Projects" },
@@ -116,7 +118,7 @@ const featuredProjects = [
   },
 ];
 
-const testimonials = [
+const DEFAULT_TESTIMONIALS = [
   {
     name: "Rajesh Sharma",
     role: "2 BHK Buyer, Girnar 108",
@@ -138,6 +140,28 @@ const testimonials = [
 ];
 
 export default function HomePage() {
+  const [liveStats, setLiveStats] = useState(DEFAULT_STATS);
+  const [liveTestimonials, setLiveTestimonials] = useState(DEFAULT_TESTIMONIALS);
+  const [heroBadge, setHeroBadge] = useState("Premium Real Estate Consultancy, Pune");
+  const [heroSubheading, setHeroSubheading] = useState(
+    "Unlock Maximum Value for Your Project with Our Expertise. Exclusive mandates, high-ROI properties, and trusted partnerships across Pune."
+  );
+
+  useEffect(() => {
+    supabase
+      .from("site_config")
+      .select("key, value")
+      .in("key", ["hero", "stats", "testimonials"])
+      .then(({ data }) => {
+        if (!data) return;
+        const map = Object.fromEntries(data.map((r) => [r.key, r.value])) as Record<string, any>;
+        if (map.hero?.badge) setHeroBadge(map.hero.badge);
+        if (map.hero?.subheading) setHeroSubheading(map.hero.subheading);
+        if (map.stats?.length) setLiveStats(map.stats);
+        if (map.testimonials?.length) setLiveTestimonials(map.testimonials);
+      });
+  }, []);
+
   return (
     <>
       {/* ─── HERO ─── */}
@@ -180,7 +204,7 @@ export default function HomePage() {
             >
               <Star size={12} className="text-[#D4A017] fill-[#D4A017]" />
               <span className="text-[#D4A017] text-xs font-medium tracking-widest uppercase">
-                Premium Real Estate Consultancy, Pune
+                {heroBadge}
               </span>
             </motion.div>
 
@@ -205,9 +229,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-gray-300 text-lg leading-relaxed mb-10 max-w-lg"
             >
-              Unlock Maximum Value for Your Project with Our Expertise.
-              Exclusive mandates, high-ROI properties, and trusted partnerships
-              across Pune.
+              {heroSubheading}
             </motion.p>
 
             <motion.div
@@ -238,7 +260,7 @@ export default function HomePage() {
               transition={{ delay: 0.6 }}
               className="grid grid-cols-4 gap-6 mt-14 pt-10 border-t border-[#D4A017]/15"
             >
-              {stats.map((stat) => (
+              {liveStats.map((stat) => (
                 <div key={stat.label}>
                   <p className="font-display text-2xl font-bold text-[#D4A017]">
                     {stat.value}
@@ -587,8 +609,8 @@ export default function HomePage() {
           </AnimatedSection>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <AnimatedSection key={t.name} delay={i * 0.1}>
+            {liveTestimonials.map((t, i) => (
+              <AnimatedSection key={i} delay={i * 0.1}>
                 <div className="bg-[#111111] border border-[#1E1E1E] hover:border-[#D4A017]/25 rounded-xl p-7 transition-all duration-300 h-full flex flex-col">
                   <div className="flex gap-0.5 mb-5">
                     {Array.from({ length: t.rating }).map((_, j) => (
