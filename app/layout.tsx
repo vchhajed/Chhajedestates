@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import PublicChrome from "@/components/PublicChrome";
 
 export const metadata: Metadata = {
   title: {
@@ -49,10 +47,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#0A0A0A] text-white antialiased">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <PublicChrome>{children}</PublicChrome>
       </body>
     </html>
   );
