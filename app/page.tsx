@@ -143,6 +143,7 @@ export default function HomePage() {
   const [liveStats, setLiveStats] = useState(DEFAULT_STATS);
   const [liveTestimonials, setLiveTestimonials] = useState(DEFAULT_TESTIMONIALS);
   const [heroBadge, setHeroBadge] = useState("Premium Real Estate Consultancy, Pune");
+  const [heroHeading, setHeroHeading] = useState("Premium Real Estate Solutions for Builders & Buyers");
   const [heroSubheading, setHeroSubheading] = useState(
     "Unlock Maximum Value for Your Project with Our Expertise. Exclusive mandates, high-ROI properties, and trusted partnerships across Pune."
   );
@@ -156,6 +157,7 @@ export default function HomePage() {
         if (!data) return;
         const map = Object.fromEntries(data.map((r) => [r.key, r.value])) as Record<string, any>;
         if (map.hero?.badge) setHeroBadge(map.hero.badge);
+        if (map.hero?.heading) setHeroHeading(map.hero.heading);
         if (map.hero?.subheading) setHeroSubheading(map.hero.subheading);
         if (map.stats?.length) setLiveStats(map.stats);
         if (map.testimonials?.length) setLiveTestimonials(map.testimonials);
@@ -214,13 +216,7 @@ export default function HomePage() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
             >
-              Premium Real
-              <br />
-              Estate Solutions
-              <br />
-              <span className="text-gold-gradient">for Builders</span>
-              <br />
-              <span className="text-gold-gradient">& Buyers</span>
+              {heroHeading}
             </motion.h1>
 
             <motion.p
