@@ -119,7 +119,6 @@ export default function ContactForm({
               onChange={handleChange}
               required
               placeholder="Mobile Number *"
-              pattern="[6-9]{1}[0-9]{9}"
               className="w-full bg-[#1A1A1A] border border-[#2A2A2A] text-white placeholder-gray-500 text-sm px-4 py-3.5 rounded focus:border-[#D4A017] transition-colors"
             />
           </div>
