@@ -45,6 +45,30 @@ export async function updateLeadNotes(id: string, notes: string) {
   if (error) throw new Error(error.message);
 }
 
+export async function updateOutboundStatus(id: string, status: string) {
+  const { error } = await supabase
+    .from("outbound_leads")
+    .update({ status, updated_at: new Date().toISOString() })
+    .eq("id", id);
+  if (error) throw new Error(error.message);
+}
+
+export async function updateOutboundNotes(id: string, notes: string) {
+  const { error } = await supabase
+    .from("outbound_leads")
+    .update({ notes, updated_at: new Date().toISOString() })
+    .eq("id", id);
+  if (error) throw new Error(error.message);
+}
+
+export async function updateOutboundPriority(id: string, priority: string) {
+  const { error } = await supabase
+    .from("outbound_leads")
+    .update({ priority, updated_at: new Date().toISOString() })
+    .eq("id", id);
+  if (error) throw new Error(error.message);
+}
+
 export async function publishContent(content: Record<string, unknown>) {
   const upserts = Object.entries(content).map(([key, value]) => ({
     key,

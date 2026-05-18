@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Users, Edit3, ExternalLink, LogOut } from "lucide-react";
+import { LayoutDashboard, Users, Edit3, ExternalLink, LogOut, Target } from "lucide-react";
 import { logout } from "@/app/actions/admin";
 
 const navItems = [
   { href: "/admin", label: "Overview", icon: LayoutDashboard, exact: true },
-  { href: "/admin/leads", label: "Leads", icon: Users, exact: false },
+  { href: "/admin/leads", label: "Inbound Leads", icon: Users, exact: false },
+  { href: "/admin/outbound", label: "Outbound Leads", icon: Target, exact: false },
   { href: "/admin/content", label: "Edit Website", icon: Edit3, exact: false },
 ];
 
