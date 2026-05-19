@@ -56,7 +56,7 @@ export default function Navbar() {
                 Chhajed
               </span>
               <span className="text-[9px] font-light text-[#D4A017] tracking-[0.3em] uppercase leading-tight">
-                Estate
+                Estates
               </span>
             </div>
           </Link>

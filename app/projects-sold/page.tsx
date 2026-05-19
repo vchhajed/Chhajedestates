@@ -59,12 +59,16 @@ const soldProjects = [
 ];
 
 const resaleProperties = [
-  { name: "Kumar Prithvi", config: "Premium Apartments", location: "Pune" },
-  { name: "Eisha Pearl", config: "Luxury Residences", location: "Pune" },
-  { name: "Shankeshwar Residency", config: "2 & 3 BHK", location: "Pune" },
-  { name: "Majestic Navkar", config: "Premium Flats", location: "Pune" },
-  { name: "Shantinagar", config: "Residential Complex", location: "Pune" },
-  { name: "Shantinan", config: "Quality Homes", location: "Pune" },
+  { name: "Kumar Prithvi Phase I", config: "Premium Apartments", location: "Pune", image: null },
+  { name: "Srivatsa", config: "Premium Residences", location: "Pune", image: "/images/srivatsa.jpeg" },
+  { name: "Kumar Prithvi Phase II", config: "Premium Apartments", location: "Pune", image: null },
+  { name: "Eisha Pearl", config: "Luxury Residences", location: "Pune", image: null },
+  { name: "Shankeshwar Residency", config: "2 & 3 BHK", location: "Pune", image: null },
+];
+
+const builderSaleProperties = [
+  { name: "Majestique Crown", config: "Premium Residences", location: "Pune", image: "/images/antariksh.jpeg" },
+  { name: "Srivatsa", config: "Premium Residences", location: "Pune", image: "/images/srivatsa.jpeg" },
 ];
 
 export default function ProjectsSoldPage() {
@@ -265,28 +269,92 @@ export default function ProjectsSoldPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {resaleProperties.map((p, i) => (
               <AnimatedSection key={p.name} delay={i * 0.07}>
-                <div className="bg-[#111111] border border-[#1E1E1E] hover:border-[#D4A017]/35 rounded-xl p-6 project-card group">
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="font-display text-white font-semibold text-base">
-                      {p.name}
-                    </h3>
-                    <span className="text-xs text-[#D4A017] border border-[#D4A017]/30 px-2.5 py-1 rounded-full shrink-0 ml-2">
-                      Resale
-                    </span>
+                <div className="bg-[#111111] border border-[#1E1E1E] hover:border-[#D4A017]/35 rounded-xl overflow-hidden project-card group">
+                  {p.image && (
+                    <div className="relative w-full h-40">
+                      <Image src={p.image} alt={p.name} fill className="object-cover" sizes="400px" />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="font-display text-white font-semibold text-base">
+                        {p.name}
+                      </h3>
+                      <span className="text-xs text-[#D4A017] border border-[#D4A017]/30 px-2.5 py-1 rounded-full shrink-0 ml-2">
+                        Resale
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-500 text-sm mb-1">
+                      <MapPin size={12} />
+                      {p.location}
+                    </div>
+                    <p className="text-gray-600 text-sm">{p.config}</p>
+                    <div className="mt-5 pt-4 border-t border-[#1E1E1E]">
+                      <Link
+                        href="/contact"
+                        className="text-[#D4A017] text-xs font-semibold flex items-center gap-1.5 hover:gap-2.5 transition-all group-hover:text-[#F0C040]"
+                      >
+                        Enquire About Pricing
+                        <ArrowRight size={12} />
+                      </Link>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-500 text-sm mb-1">
-                    <MapPin size={12} />
-                    {p.location}
-                  </div>
-                  <p className="text-gray-600 text-sm">{p.config}</p>
-                  <div className="mt-5 pt-4 border-t border-[#1E1E1E]">
-                    <Link
-                      href="/contact"
-                      className="text-[#D4A017] text-xs font-semibold flex items-center gap-1.5 hover:gap-2.5 transition-all group-hover:text-[#F0C040]"
-                    >
-                      Enquire About Pricing
-                      <ArrowRight size={12} />
-                    </Link>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Builder Sale */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0A]">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection className="text-center mb-14">
+            <span className="text-[#D4A017] text-xs font-medium tracking-[0.3em] uppercase">
+              Builder Sale
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl text-white font-bold mt-3">
+              Builder Sale Properties
+            </h2>
+            <div className="gold-divider mt-4" />
+            <p className="text-gray-400 text-sm mt-4 max-w-xl mx-auto">
+              Direct builder sale properties available through Chhajed Estates.
+              Contact us for pricing and site visit.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {builderSaleProperties.map((p, i) => (
+              <AnimatedSection key={p.name} delay={i * 0.07}>
+                <div className="bg-[#111111] border border-[#1E1E1E] hover:border-[#D4A017]/35 rounded-xl overflow-hidden project-card group">
+                  {p.image && (
+                    <div className="relative w-full h-40">
+                      <Image src={p.image} alt={p.name} fill className="object-cover" sizes="400px" />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="font-display text-white font-semibold text-base">
+                        {p.name}
+                      </h3>
+                      <span className="text-xs text-[#D4A017] border border-[#D4A017]/30 px-2.5 py-1 rounded-full shrink-0 ml-2">
+                        Builder Sale
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-500 text-sm mb-1">
+                      <MapPin size={12} />
+                      {p.location}
+                    </div>
+                    <p className="text-gray-600 text-sm">{p.config}</p>
+                    <div className="mt-5 pt-4 border-t border-[#1E1E1E]">
+                      <Link
+                        href="/contact"
+                        className="text-[#D4A017] text-xs font-semibold flex items-center gap-1.5 hover:gap-2.5 transition-all group-hover:text-[#F0C040]"
+                      >
+                        Enquire About Pricing
+                        <ArrowRight size={12} />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </AnimatedSection>

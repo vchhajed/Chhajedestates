@@ -27,7 +27,7 @@ export default function Footer() {
                 <div className="flex items-center gap-2 mt-0.5">
                   <div className="h-px w-5 bg-[#D4A017]" />
                   <span className="text-[9px] font-light text-[#D4A017] tracking-[0.25em] uppercase">
-                    Estate
+                    Estates
                   </span>
                   <div className="h-px w-5 bg-[#D4A017]" />
                 </div>
@@ -86,11 +86,11 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                "Ranawat Group Project",
-                "Vrindanand Parshwa",
+                "Giri Shikhar",
                 "Vatsalya Tower",
-                "Emerald Vista",
+                "Parshwa Vrindanand",
                 "Kshitij Bibwewadi",
+                "Padmavati Nakshatra",
               ].map((project) => (
                 <li key={project}>
                   <Link
@@ -145,7 +145,7 @@ export default function Footer() {
 
         <div className="border-t border-[#D4A017]/15 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-xs text-center md:text-left">
-            © {new Date().getFullYear()} Chhajed Estate. All rights reserved.
+            © {new Date().getFullYear()} Chhajed Estates. All rights reserved.
           </p>
           <p className="text-gray-600 text-xs">
             RERA Registered | Premium Real Estate Consultancy, Pune

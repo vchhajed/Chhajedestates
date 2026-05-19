@@ -61,40 +61,40 @@ const whyChooseUs = [
 
 const featuredProjects = [
   {
+    id: "girishikhar",
+    name: "Giri Shikhar",
+    location: "Pune",
+    config: "2 & 3 BHK",
+    units: "149 Residences",
+    tag: "Sole Selling",
+    tagColor: "bg-[#D4A017]/20 text-[#D4A017]",
+    rera: "P52100080993",
+    highlight: "32 Amenities • 1 Acre Tower",
+    possession: "Dec 2028",
+    price: "On Request",
+    image: "/images/ranawat-render.jpg",
+  },
+  {
     id: "vatsalya",
     name: "Vatsalya Tower",
     location: "Katraj Kondhwa Road",
     config: "2 / 3 / 4 BHK",
     units: "33 Flats",
-    tag: "Possession Soon",
-    tagColor: "bg-green-500/20 text-green-400",
+    tag: "Sole Selling",
+    tagColor: "bg-[#D4A017]/20 text-[#D4A017]",
     rera: "P52100031866",
-    highlight: "Jain Temple IN Premises • 95L+",
+    highlight: "Sole Selling • 95L+",
     possession: "Ready in 2 Months",
     price: "₹95 Lacs+",
     image: "/images/vatsalya-1.jpeg",
   },
   {
-    id: "emerald",
-    name: "Emerald Vista",
-    location: "Ekbote Colony, Pune",
-    config: "2 & 3 BHK",
-    units: "Last 5 Units!",
-    tag: "Last 5 Units",
-    tagColor: "bg-red-500/20 text-red-400",
-    rera: "P52100076742",
-    highlight: "Near Jain Mandir • Vastu Compliant",
-    possession: "12 Months",
-    price: "₹1.31 Cr+",
-    image: "/images/emerald-vista-render.jpeg",
-  },
-  {
-    id: "vrindanand",
-    name: "Vrindanand Parshwa",
+    id: "parshwavrindanand",
+    name: "Parshwa Vrindanand",
     location: "Timber Merchant Colony",
     config: "3 & 4 BHK Luxury",
     units: "14 Exclusive Flats",
-    tag: "Ultra Luxury",
+    tag: "Sole Selling",
     tagColor: "bg-[#D4A017]/20 text-[#D4A017]",
     rera: null,
     highlight: "Rooftop Amenities • ₹2.70Cr onwards",
@@ -103,18 +103,18 @@ const featuredProjects = [
     image: null,
   },
   {
-    id: "ranawat",
-    name: "Ranawat Group Project",
-    location: "Pune",
-    config: "2 & 3 BHK",
-    units: "149 Residences",
-    tag: "RERA Registered",
-    tagColor: "bg-green-500/20 text-green-400",
-    rera: "P52100080993",
-    highlight: "32 Amenities • 1 Acre Tower",
-    possession: "Dec 2028",
+    id: "kshitij",
+    name: "Kshitij Bibwewadi",
+    location: "Bibwewadi, Pune",
+    config: "2.5 & 3 BHK",
+    units: "2 Units Left",
+    tag: "2 Units Available",
+    tagColor: "bg-orange-500/20 text-orange-400",
+    rera: "P52100051523",
+    highlight: "2 Units Available • Oasis of Greens",
+    possession: "On Request",
     price: "On Request",
-    image: "/images/ranawat-render.jpg",
+    image: null,
   },
 ];
 
@@ -305,22 +305,25 @@ export default function HomePage() {
               <span className="text-[#D4A017] text-xs font-medium tracking-[0.3em] uppercase">
                 About Us
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl text-white font-bold mt-3 mb-6 leading-tight">
+              <p className="text-[#D4A017] font-display text-3xl sm:text-4xl font-bold mt-3 mb-1 leading-tight">
+                We deal in Commercial, Residential &amp; Rental Properties
+              </p>
+              <h2 className="font-display text-3xl sm:text-4xl text-white font-bold mt-2 mb-6 leading-tight">
                 Pune's Most Trusted
                 <br />
                 <span className="text-gold-gradient">Real Estate Partner</span>
               </h2>
               <div className="gold-divider" style={{ margin: "0 0 1.5rem 0" }} />
               <p className="text-gray-400 leading-relaxed mb-6">
-                Chhajed Estate is a premium real estate consultancy based in
+                Chhajed Estates is a premium real estate consultancy based in
                 Pune, specializing in exclusive builder project sales, sole
                 selling mandates, and high-value residential properties.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
-                Our expertise spans the entire spectrum — from luxury apartments
-                in prime Pune locations to affordable quality homes for families.
-                We work closely with top builders to deliver maximum value for
-                both buyers and developers.
+                We deal in Commercial, Residential, and Rental properties — from
+                luxury apartments in prime Pune locations to affordable quality
+                homes for families. We work closely with top builders to deliver
+                maximum value for both buyers and developers.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
@@ -329,7 +332,7 @@ export default function HomePage() {
                   "Market Analysis",
                   "Project Positioning",
                   "RERA Compliant",
-                  "Jain Community Focus",
+                  "Rental Properties",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#D4A017]" />
@@ -364,13 +367,13 @@ export default function HomePage() {
                   {
                     num: "149",
                     label: "Residences",
-                    sub: "Ranawat Project",
+                    sub: "Giri Shikhar",
                     bg: "bg-[#0A1218]",
                   },
                   {
                     num: "32",
                     label: "Amenities",
-                    sub: "Ranawat Project",
+                    sub: "Giri Shikhar",
                     bg: "bg-[#081210]",
                   },
                 ].map((card) => (
