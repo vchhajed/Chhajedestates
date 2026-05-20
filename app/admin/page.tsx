@@ -16,8 +16,18 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 export default async function AdminOverviewPage() {
+  type Lead = {
+    id: string;
+    full_name: string;
+    mobile: string;
+    project_interest: string;
+    budget: string;
+    status: string | null;
+    created_at: string;
+  };
+
   let all: { status: string; created_at: string }[] | null = null;
-  let recent: Record<string, unknown>[] | null = null;
+  let recent: Lead[] | null = null;
 
   try {
     const [res1, res2] = await Promise.all([
@@ -29,7 +39,7 @@ export default async function AdminOverviewPage() {
         .limit(10),
     ]);
     all = res1.data;
-    recent = res2.data;
+    recent = res2.data as Lead[];
   } catch {
     // Supabase unavailable — render with empty data
   }
