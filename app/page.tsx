@@ -154,7 +154,7 @@ export default function HomePage() {
     supabase
       .from("site_config")
       .select("key, value")
-      .in("key", ["hero", "stats", "testimonials", "featuredProjects"])
+      .in("key", ["hero", "stats", "testimonials"])
       .then(({ data }) => {
         if (!data) return;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -165,7 +165,6 @@ export default function HomePage() {
         if (map.hero?.bgImage) setHeroBgImage(map.hero.bgImage);
         if (map.stats?.length) setLiveStats(map.stats);
         if (map.testimonials?.length) setLiveTestimonials(map.testimonials);
-        if (map.featuredProjects?.length) setLiveFeatured(map.featuredProjects);
       });
   }, []);
 
