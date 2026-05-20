@@ -16,14 +16,23 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 export default async function AdminOverviewPage() {
-  const [{ data: all }, { data: recent }] = await Promise.all([
-    supabase.from("enquiries").select("status, created_at"),
-    supabase
-      .from("enquiries")
-      .select("*")
-      .order("created_at", { ascending: false })
-      .limit(10),
-  ]);
+  let all: { status: string; created_at: string }[] | null = null;
+  let recent: Record<string, unknown>[] | null = null;
+
+  try {
+    const [res1, res2] = await Promise.all([
+      supabase.from("enquiries").select("status, created_at"),
+      supabase
+        .from("enquiries")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(10),
+    ]);
+    all = res1.data;
+    recent = res2.data;
+  } catch {
+    // Supabase unavailable — render with empty data
+  }
 
   const total = all?.length ?? 0;
   const newLeads = all?.filter((r) => r.status === "new").length ?? 0;

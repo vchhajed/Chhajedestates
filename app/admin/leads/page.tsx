@@ -28,9 +28,10 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 const PROJECT_LABELS: Record<string, string> = {
-  ranawat: "Ranawat Group",
-  vrindanand: "Vrindanand Parshwa",
+  girishikhar: "Giri Shikhar",
   vatsalya: "Vatsalya Tower",
+  parshwavrindanand: "Parshwa Vrindanand",
+  padmavati: "Padmavati Nakshatra",
   emerald: "Emerald Vista",
   kshitij: "Kshitij Bibwewadi",
   resale: "Resale Properties",
