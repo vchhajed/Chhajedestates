@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle, Target, Eye, Heart } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ContactForm from "@/components/ContactForm";
@@ -84,7 +85,26 @@ export default function AboutPage() {
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Photo */}
             <AnimatedSection direction="left">
+              <div className="relative rounded-2xl overflow-hidden border border-[#D4A017]/20 shadow-2xl mx-auto" style={{ aspectRatio: "3/4", maxWidth: "320px", background: "linear-gradient(160deg, #1A1208 0%, #0D0D0D 100%)" }}>
+                <Image
+                  src="/images/about-photo.png"
+                  alt="Gautam Chhajed — Chhajed Estates"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="font-display text-white text-xl font-bold">Gautam Chhajed</p>
+                  <p className="text-[#D4A017] text-sm tracking-wide">Founder, Chhajed Estates</p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Story text + timeline */}
+            <AnimatedSection direction="right" delay={0.2}>
               <span className="text-[#D4A017] text-xs font-medium tracking-[0.3em] uppercase">
                 Our Story
               </span>
@@ -93,9 +113,9 @@ export default function AboutPage() {
                 <br />
                 <span className="text-gold-gradient">Delivering Value</span>
               </h2>
-              <div className="space-y-4 text-gray-400 leading-relaxed">
+              <div className="space-y-4 text-gray-400 leading-relaxed mb-10">
                 <p>
-                  Chhajed Estate was founded with a single mission: to be the
+                  Chhajed Estates was founded with a single mission: to be the
                   most trusted real estate partner for both builders and buyers
                   in Pune. Over the years, we have grown from a boutique
                   consultancy to a recognized name in Pune's premium real estate
@@ -115,30 +135,22 @@ export default function AboutPage() {
                   dealings, and the best outcomes for everyone involved.
                 </p>
               </div>
-            </AnimatedSection>
 
-            <AnimatedSection direction="right" delay={0.2}>
-              <div className="bg-[#111111] border border-[#D4A017]/20 rounded-2xl p-8">
-                <h3 className="font-display text-white text-xl font-semibold mb-6">
-                  Our Timeline
-                </h3>
-                <div className="relative">
-                  <div className="absolute left-3 top-0 bottom-0 w-px bg-[#D4A017]/20" />
-                  <div className="space-y-6">
-                    {milestones.map((m) => (
-                      <div key={m.year} className="flex gap-5 pl-10 relative">
-                        <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-[#1A1208] border-2 border-[#D4A017] flex items-center justify-center">
-                          <div className="w-1.5 h-1.5 bg-[#D4A017] rounded-full" />
-                        </div>
-                        <div>
-                          <span className="text-[#D4A017] text-xs font-bold tracking-widest">
-                            {m.year}
-                          </span>
-                          <p className="text-gray-300 text-sm mt-0.5">{m.event}</p>
-                        </div>
+              {/* Timeline inline */}
+              <div className="relative">
+                <div className="absolute left-3 top-0 bottom-0 w-px bg-[#D4A017]/20" />
+                <div className="space-y-5">
+                  {milestones.map((m) => (
+                    <div key={m.year} className="flex gap-5 pl-10 relative">
+                      <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-[#1A1208] border-2 border-[#D4A017] flex items-center justify-center">
+                        <div className="w-1.5 h-1.5 bg-[#D4A017] rounded-full" />
                       </div>
-                    ))}
-                  </div>
+                      <div>
+                        <span className="text-[#D4A017] text-xs font-bold tracking-widest">{m.year}</span>
+                        <p className="text-gray-300 text-sm mt-0.5">{m.event}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </AnimatedSection>

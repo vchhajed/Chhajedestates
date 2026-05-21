@@ -352,41 +352,17 @@ export default function HomePage() {
             <AnimatedSection direction="right" delay={0.2}>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  {
-                    num: "18",
-                    label: "Flats Sold",
-                    sub: "Padmavati Nakshatra",
-                    bg: "bg-[#1A1208]",
-                  },
-                  {
-                    num: "20+",
-                    label: "Units Sold",
-                    sub: "Girnar 108",
-                    bg: "bg-[#121218]",
-                  },
-                  {
-                    num: "149",
-                    label: "Residences",
-                    sub: "Giri Shikhar",
-                    bg: "bg-[#0A1218]",
-                  },
-                  {
-                    num: "32",
-                    label: "Amenities",
-                    sub: "Giri Shikhar",
-                    bg: "bg-[#081210]",
-                  },
+                  { num: "18", label: "Flats Sold", sub: "Padmavati Nakshatra", bg: "bg-[#1A1208]" },
+                  { num: "20+", label: "Units Sold", sub: "Girnar 108", bg: "bg-[#121218]" },
+                  { num: "149", label: "Residences", sub: "Giri Shikhar", bg: "bg-[#0A1218]" },
+                  { num: "32", label: "Amenities", sub: "Giri Shikhar", bg: "bg-[#081210]" },
                 ].map((card) => (
                   <div
                     key={card.label}
                     className={`${card.bg} border border-[#D4A017]/15 rounded-xl p-6 hover:border-[#D4A017]/40 transition-colors`}
                   >
-                    <p className="font-display text-3xl font-bold text-[#D4A017]">
-                      {card.num}
-                    </p>
-                    <p className="text-white font-medium text-sm mt-1">
-                      {card.label}
-                    </p>
+                    <p className="font-display text-3xl font-bold text-[#D4A017]">{card.num}</p>
+                    <p className="text-white font-medium text-sm mt-1">{card.label}</p>
                     <p className="text-gray-500 text-xs mt-0.5">{card.sub}</p>
                   </div>
                 ))}
