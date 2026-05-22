@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -19,20 +19,20 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Available Projects",
   description:
-    "Explore Chhajed Estate's premium ongoing residential projects in Pune — Vatsalya Tower (95L+), Emerald Vista (1.31Cr), Vrindanand Parshwa (2.70Cr), Kshitij Bibwewadi, and more.",
+    "Explore Chhajed Estate's premium ongoing residential projects in Pune - Vatsalya Tower (95L+), Emerald Vista (1.31Cr), Vrindanand Parshwa (2.70Cr), Kshitij Bibwewadi, and more.",
 };
 
 const ongoingProjects = [
   {
     id: "girishikhar",
     name: "Giri Shikhar",
-    tagline: "149 Residences • 32 Amenities • 1 Acre Single Tower",
+    tagline: "149 Residences • 32 Amenities",
     location: "Pune",
-    sublocation: "RERA Registered — Sole Selling",
+    sublocation: "RERA Registered - Sole Selling",
     config: "2 & 3 BHK",
     units: 149,
     amenities: 32,
-    possession: "December 2028",
+    possession: "December 2029",
     rera: "P52100080993",
     status: "Sole Selling",
     statusColor: "bg-[#D4A017]/20 text-[#D4A017] border-[#D4A017]/30",
@@ -49,7 +49,7 @@ const ongoingProjects = [
       "Swimming pool & fully equipped gym",
       "Kids' play area & landscaped gardens",
       "High ROI potential location",
-      "Possession: December 2028",
+      "Possession: December 2029",
     ],
     amenityList: [
       "Swimming Pool",
@@ -62,8 +62,8 @@ const ongoingProjects = [
       "Covered Parking",
     ],
     sizes: [
-      "2 BHK — Contact for details",
-      "3 BHK — Contact for details",
+      "2 BHK - Contact for details",
+      "3 BHK - Contact for details",
     ],
     developer: "Kusuma Developers / Padmavati Ventures",
     downloads: [],
@@ -71,7 +71,7 @@ const ongoingProjects = [
   {
     id: "vatsalya",
     name: "Vatsalya Tower",
-    tagline: "Premium 2/3/4 BHK • 95 Lacs Onwards — Sole Selling",
+    tagline: "Premium 2/3/4 BHK • 95 Lacs Onwards - Sole Selling",
     location: "Near Shatrunjay Temple, Kondhwa (BK)",
     sublocation: "Near Gagan Signet, Katraj Kondhwa Road",
     config: "2 / 3 / 4 BHK",
@@ -95,9 +95,9 @@ const ongoingProjects = [
       "33 premium residential flats",
       "RERA Registered: P52100031866",
       "Possession in just 2 months",
-      "95 Lacs onwards — excellent value",
+      "95 Lacs onwards - excellent value",
       "Near Gagan Signet township",
-      "Katraj Kondhwa Road — high connectivity",
+      "Katraj Kondhwa Road - high connectivity",
       "2, 3 & 4 BHK configurations available",
     ],
     amenityList: [
@@ -107,12 +107,12 @@ const ongoingProjects = [
       "Quality Finishes",
     ],
     sizes: [
-      "2 BHK — 960 sq.ft carpet",
-      "2 BHK — 995 sq.ft carpet",
-      "3 BHK — 1110 sq.ft carpet",
-      "3 BHK — 1232 sq.ft carpet",
-      "4 BHK — 1570 sq.ft carpet",
-      "4 BHK — 1710 sq.ft carpet",
+      "2 BHK - 960 sq.ft carpet",
+      "2 BHK - 995 sq.ft carpet",
+      "3 BHK - 1110 sq.ft carpet",
+      "3 BHK - 1232 sq.ft carpet",
+      "4 BHK - 1570 sq.ft carpet",
+      "4 BHK - 1710 sq.ft carpet",
     ],
     developer: "Vatsalya Properties",
     downloads: [],
@@ -120,9 +120,9 @@ const ongoingProjects = [
   {
     id: "parshwavrindanand",
     name: "Parshwa Vrindanand",
-    tagline: "XXL Homes with Exclusive Living • Rooftop Amenities — Sole Selling",
+    tagline: "XXL Homes with Exclusive Living • Rooftop Amenities - Sole Selling",
     location: "Timber Merchant Colony, Nr. Seven Loves Chowk",
-    sublocation: "Pune — Prime Location",
+    sublocation: "Pune - Prime Location",
     config: "3 & 4 BHK Luxury",
     units: 14,
     amenities: 6,
@@ -140,7 +140,7 @@ const ongoingProjects = [
       "3 BHK: 1322 sq.ft carpet",
       "4 BHK: 1710 sq.ft carpet",
       "Spectacular rooftop amenity deck",
-      "Timber Merchant Colony — prime Pune location",
+      "Timber Merchant Colony - prime Pune location",
       "2 covered car parks included",
       "Project onboarded November 2024",
     ],
@@ -155,8 +155,8 @@ const ongoingProjects = [
       "2 Car Parks",
     ],
     sizes: [
-      "3 BHK — 1322 sq.ft (₹2.70 Cr total cost)",
-      "4 BHK — 1710 sq.ft (₹3.45 Cr total cost)",
+      "3 BHK - 1322 sq.ft (₹2.70 Cr total cost)",
+      "4 BHK - 1710 sq.ft (₹3.45 Cr total cost)",
     ],
     developer: "MNT Construction",
     downloads: [
@@ -169,7 +169,7 @@ const ongoingProjects = [
   {
     id: "padmavati",
     name: "Padmavati Nakshatra",
-    tagline: "100% Sold — Sole Selling Mandate",
+    tagline: "100% Sold - Sole Selling Mandate",
     location: "Gurunanak Nagar",
     sublocation: "Opp Kumar Pacific Mall, Pune",
     config: "2 BHK",
@@ -185,8 +185,8 @@ const ongoingProjects = [
     images: [],
     gradient: "from-[#1a1208]",
     highlights: [
-      "All 18 flats sold — 100% achievement",
-      "Premium 2 BHK — 900 sq.ft carpet each",
+      "All 18 flats sold - 100% achievement",
+      "Premium 2 BHK - 900 sq.ft carpet each",
       "Prime location: Gurunanak Nagar",
       "Opposite Kumar Pacific Mall",
       "Sole selling mandate by Chhajed Estates",
@@ -199,7 +199,7 @@ const ongoingProjects = [
       "Quality Finishes",
     ],
     sizes: [
-      "2 BHK — 900 sq.ft carpet",
+      "2 BHK - 900 sq.ft carpet",
     ],
     developer: "Padmavati Group",
     downloads: [],
@@ -207,9 +207,9 @@ const ongoingProjects = [
   {
     id: "emerald",
     name: "Emerald Vista",
-    tagline: "Ultra-Spacious 2 & 3 BHK — Sole Selling • All Sold",
+    tagline: "Ultra-Spacious 2 & 3 BHK - Sole Selling • All Sold",
     location: "Ekbote Colony, Near Seven Loves Chowk",
-    sublocation: "Pune — Vastu Compliant",
+    sublocation: "Pune - Vastu Compliant",
     config: "2 & 3 BHK",
     units: 12,
     amenities: null,
@@ -223,11 +223,11 @@ const ongoingProjects = [
     images: ["/images/emerald-vista-render.jpeg", "/images/emerald-vista-poster.jpeg"],
     gradient: "from-[#081210]",
     highlights: [
-      "All units sold — sole selling mandate",
+      "All units sold - sole selling mandate",
       "Vastu compliant design",
       "RERA Registered: P52100076742",
       "Ultra-spacious floor plans",
-      "Ekbote Colony — peaceful prime location",
+      "Ekbote Colony - peaceful prime location",
       "Near Seven Loves Chowk",
       "All-inclusive pricing (no hidden costs)",
     ],
@@ -239,8 +239,8 @@ const ongoingProjects = [
       "Landscaped Entrance",
     ],
     sizes: [
-      "2 BHK — 832 sq.ft carpet",
-      "3 BHK — 1120 sq.ft carpet",
+      "2 BHK - 832 sq.ft carpet",
+      "3 BHK - 1120 sq.ft carpet",
     ],
     developer: "Padmavati Group",
     downloads: [],
@@ -248,7 +248,7 @@ const ongoingProjects = [
   {
     id: "kshitij",
     name: "Kshitij Bibwewadi",
-    tagline: "Nature's Harmony • The Oasis of Greens — 2 Units Available",
+    tagline: "Nature's Harmony • The Oasis of Greens - 2 Units Available",
     location: "Bibwewadi Yash Lawns Road",
     sublocation: "Behind Mahaveer Electronics, Bibwewadi, Pune",
     config: "2.5 & 3 BHK",
@@ -264,12 +264,12 @@ const ongoingProjects = [
     images: [],
     gradient: "from-[#120a18]",
     highlights: [
-      "Only 2 units remaining — limited availability",
+      "Only 2 units remaining - limited availability",
       "2.5 & 3 BHK spacious configurations",
       "RERA Registered: P52100051523",
-      "Bibwewadi — established premium locality",
-      "Nature-themed design — 'Oasis of Greens'",
-      "Yash Lawns Road — excellent access",
+      "Bibwewadi - established premium locality",
+      "Nature-themed design - 'Oasis of Greens'",
+      "Yash Lawns Road - excellent access",
       "By Pavonine Associates (Trisha + Morphic)",
     ],
     amenityList: [
@@ -281,8 +281,8 @@ const ongoingProjects = [
       "Quality Finishes",
     ],
     sizes: [
-      "2.5 BHK — 994 sq.ft carpet",
-      "3 BHK — 1216 sq.ft carpet",
+      "2.5 BHK - 994 sq.ft carpet",
+      "3 BHK - 1216 sq.ft carpet",
     ],
     developer: "Pavonine Associates",
     downloads: [],
@@ -330,7 +330,7 @@ export default function ProjectsPage() {
           </h1>
           <div className="h-px w-16 bg-gradient-to-r from-[#D4A017] to-[#F0C040] mx-auto mb-6" />
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Handpicked premium residential projects across Pune — with verified
+            Handpicked premium residential projects across Pune - with verified
             RERA numbers, exact carpet areas, and transparent pricing.
           </p>
           {/* Quick project jump */}

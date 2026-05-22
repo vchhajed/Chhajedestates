@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -45,7 +45,7 @@ const whyChooseUs = [
   {
     icon: ShieldCheck,
     title: "End-to-End Service",
-    desc: "From site visits and negotiations to documentation and possession — we handle it all for you.",
+    desc: "From site visits and negotiations to documentation and possession - we handle it all for you.",
   },
   {
     icon: Users,
@@ -70,7 +70,7 @@ const featuredProjects = [
     tagColor: "bg-[#D4A017]/20 text-[#D4A017]",
     rera: "P52100080993",
     highlight: "32 Amenities • 1 Acre Tower",
-    possession: "Dec 2028",
+    possession: "Dec 2029",
     price: "On Request",
     image: "/images/ranawat-render.jpg",
   },
@@ -177,7 +177,7 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <Image
             src={heroBgImage}
-            alt="Premium Real Estate — Chhajed Estate"
+            alt="Premium Real Estate - Chhajed Estate"
             fill
             className="object-cover object-center"
             priority
@@ -320,7 +320,7 @@ export default function HomePage() {
                 selling mandates, and high-value residential properties.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
-                We deal in Commercial, Residential, and Rental properties — from
+                We deal in Commercial, Residential, and Rental properties - from
                 luxury apartments in prime Pune locations to affordable quality
                 homes for families. We work closely with top builders to deliver
                 maximum value for both buyers and developers.

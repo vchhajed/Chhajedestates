@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ContactForm from "@/components/ContactForm";
@@ -244,12 +244,12 @@ export default async function ContactPage() {
                       allowFullScreen={false}
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      title="Chhajed Estate Location — Pune"
+                      title="Chhajed Estate Location - Pune"
                     />
                   </div>
                   <div className="p-4 text-center">
                     <p className="text-gray-500 text-xs">
-                      Serving clients across Pune — Kondhwa, Bibwewadi, Katraj,
+                      Serving clients across Pune - Kondhwa, Bibwewadi, Katraj,
                       and surrounding areas
                     </p>
                   </div>

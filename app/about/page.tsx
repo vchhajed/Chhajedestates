@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle, Target, Eye, Heart } from "lucide-react";
@@ -8,15 +8,15 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Chhajed Estate — Pune's trusted real estate consultancy. Specializing in sole selling mandates, builder partnerships, and premium residential projects.",
+    "Learn about Chhajed Estate - Pune's trusted real estate consultancy. Specializing in sole selling mandates, builder partnerships, and premium residential projects.",
 };
 
 const milestones = [
   { year: "2010", event: "Founded Chhajed Estate in Pune" },
-  { year: "2015", event: "First sole selling mandate — 100% sold" },
+  { year: "2015", event: "First sole selling mandate - 100% sold" },
   { year: "2018", event: "Expanded to luxury residential segment" },
-  { year: "2020", event: "Girnar 108 — 60 flats, 20+ units sold" },
-  { year: "2022", event: "Padmavati Nakshatra — 18/18 units sold" },
+  { year: "2020", event: "Girnar 108 - 60 flats, 20+ units sold" },
+  { year: "2022", event: "Padmavati Nakshatra - 18/18 units sold" },
   { year: "2024", event: "5 new premium projects onboarded" },
 ];
 
@@ -29,7 +29,7 @@ const expertise = [
   {
     icon: CheckCircle,
     title: "Sole Selling Mandates",
-    desc: "We take full responsibility for project sales — from launch strategy and marketing to buyer qualification and closure.",
+    desc: "We take full responsibility for project sales - from launch strategy and marketing to buyer qualification and closure.",
   },
   {
     icon: Eye,
@@ -90,7 +90,7 @@ export default function AboutPage() {
               <div className="relative rounded-2xl overflow-hidden border border-[#D4A017]/20 shadow-2xl mx-auto" style={{ aspectRatio: "3/4", maxWidth: "320px", background: "linear-gradient(160deg, #1A1208 0%, #0D0D0D 100%)" }}>
                 <Image
                   src="/images/about-photo.png"
-                  alt="Gautam Chhajed — Chhajed Estates"
+                  alt="Gautam Chhajed - Chhajed Estates"
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -125,7 +125,7 @@ export default function AboutPage() {
                   Our founder, Gautam Chhajed, brings decades of hands-on
                   experience in property sales, market analysis, and builder
                   partnerships. His deep understanding of the Pune market —
-                  especially in areas like Kondhwa, Bibwewadi, and Katraj — has
+                  especially in areas like Kondhwa, Bibwewadi, Market Yard, and Gangadham - has
                   helped hundreds of families find their dream homes.
                 </p>
                 <p>
@@ -212,7 +212,7 @@ export default function AboutPage() {
                 <p className="text-gray-400 leading-relaxed">
                   To connect quality builders with qualified buyers through
                   expert guidance, transparent dealings, and a relentless focus
-                  on client satisfaction — ensuring every property transaction
+                  on client satisfaction - ensuring every property transaction
                   creates maximum value for all stakeholders.
                 </p>
               </div>
@@ -298,7 +298,8 @@ export default function AboutPage() {
                 {[
                   { val: "100%", label: "Sales Achievement", sub: "Padmavati Nakshatra" },
                   { val: "33%", label: "Sold at Girnar 108", sub: "Ongoing mandate" },
-                  { val: "149", label: "Units — Ranawat", sub: "Active mandate" },
+                  { val: "Giri Shikhar", label: "Possession Dec 2029", sub: "Active mandate" },
+
                   { val: "5+", label: "Active Mandates", sub: "Across Pune" },
                 ].map((s) => (
                   <div
@@ -331,7 +332,7 @@ export default function AboutPage() {
               <p className="text-gray-400 mb-6">
                 Whether you're a buyer looking for your dream home, an investor
                 seeking high-ROI properties, or a builder wanting to maximize
-                sales — we're here to help.
+                sales - we're here to help.
               </p>
               <div className="space-y-3">
                 <a

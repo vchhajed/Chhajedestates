@@ -256,7 +256,7 @@ const D_FEATURED: FeaturedProject[] = [
     units: "149 Residences",
     tag: "Sole Selling",
     highlight: "32 Amenities • 1 Acre Tower",
-    possession: "Dec 2028",
+    possession: "Dec 2029",
     price: "On Request",
     image: "/images/ranawat-render.jpg",
   },

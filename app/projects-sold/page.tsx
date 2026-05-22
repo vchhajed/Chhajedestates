@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Bed, Building2, ArrowRight, CheckCircle } from "lucide-react";
@@ -8,7 +8,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Sold Projects",
   description:
-    "Chhajed Estate's proven track record — Padmavati Nakshatra (18/18 sold), Girnar 108 (20+ sold at Vit Chowk Kondhwa), and 6+ resale properties.",
+    "Chhajed Estate's proven track record - Padmavati Nakshatra (18/18 sold), Girnar 108 (20+ sold at Vit Chowk Kondhwa), and 6+ resale properties.",
 };
 
 const soldProjects = [
@@ -24,8 +24,8 @@ const soldProjects = [
     status: "100% Sold",
     statusColor: "bg-green-500/20 text-green-400 border-green-500/30",
     highlights: [
-      "All 18 flats sold — 100% achievement",
-      "Premium 2 BHK — 900 sq.ft carpet each",
+      "All 18 flats sold - 100% achievement",
+      "Premium 2 BHK - 900 sq.ft carpet each",
       "Prime location: Gurunanak Nagar",
       "Opposite Kumar Pacific Mall",
       "Sole selling mandate by Chhajed Estate",
@@ -50,7 +50,7 @@ const soldProjects = [
       "2 BHK: 990 sq.ft carpet area",
       "3 BHK: 1100 & 1300 sq.ft carpet",
       "20 units sold through Chhajed Estate",
-      "Vit Chowk — well-connected Kondhwa location",
+      "Vit Chowk - well-connected Kondhwa location",
       "Multiple configurations: 2, 2.5 & 3 BHK",
     ],
     gradient: "from-[#121218]",
@@ -99,7 +99,7 @@ export default function ProjectsSoldPage() {
           </h1>
           <div className="h-px w-16 bg-gradient-to-r from-[#D4A017] to-[#F0C040] mx-auto mb-6" />
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Numbers that speak for themselves — every unit sold is a family
+            Numbers that speak for themselves - every unit sold is a family
             whose trust we have earned.
           </p>
         </div>
@@ -152,7 +152,7 @@ export default function ProjectsSoldPage() {
                   }}
                 >
                   <div className="grid md:grid-cols-3">
-                    {/* Left — Project Info */}
+                    {/* Left - Project Info */}
                     <div className="md:col-span-2 p-8 sm:p-10">
                       <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
                         <div>
@@ -212,7 +212,7 @@ export default function ProjectsSoldPage() {
                       </ul>
                     </div>
 
-                    {/* Right — Stats Panel */}
+                    {/* Right - Stats Panel */}
                     <div className="border-t md:border-t-0 md:border-l border-[#D4A017]/15 p-8 flex flex-col justify-center gap-5">
                       <div className="text-center">
                         <Building2 size={26} className="text-[#D4A017] mx-auto mb-2" />

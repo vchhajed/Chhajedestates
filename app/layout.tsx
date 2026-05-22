@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import "./globals.css";
 import PublicChrome from "@/components/PublicChrome";
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | Chhajed Estate",
   },
   description:
-    "Chhajed Estate — Unlock Maximum Value for Your Project with Our Expertise. Premium real estate consultancy specializing in builder project sales, luxury apartments, and exclusive property solutions in Pune.",
+    "Chhajed Estate - Unlock Maximum Value for Your Project with Our Expertise. Premium real estate consultancy specializing in builder project sales, luxury apartments, and exclusive property solutions in Pune.",
   keywords: [
     "Chhajed Estate",
     "real estate Pune",
