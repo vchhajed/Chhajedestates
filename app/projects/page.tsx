@@ -66,7 +66,9 @@ const ongoingProjects = [
       "3 BHK - Contact for details",
     ],
     developer: "Kusuma Developers / Padmavati Ventures",
-    downloads: [],
+    downloads: [
+      { label: "Project Brochure", href: "/images/giri-shikhar-brochure.pdf" },
+    ],
   },
   {
     id: "vatsalya",
